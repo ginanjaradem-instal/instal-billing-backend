@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101c2d">
+    <title>InstaLink - Billing & CRM</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg">
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/js/dashboard.js" defer></script>
+    <script src="/js/pelanggan.js" defer></script>
+    <script src="/js/plans.js" defer></script>
+    <script src="/js/services.js" defer></script>
+    <script src="/js/invoices.js" defer></script>
+    <script src="/js/tickets.js" defer></script>
+    <script src="/js/requests.js" defer></script>
+    <script src="/js/routers.js" defer></script>
+    <script src="/js/settings.js" defer></script>
+    <script src="/js/users.js" defer></script>
+    <script src="/js/actions.js" defer></script>
+    <script src="/js/interactions.js" defer></script>
+    <script src="/js/app.js" defer></script>
+  </head>
+  <body>
+    <section id="login-screen" class="login-screen">
+      <div class="login-card">
+        <div class="brand brand-login"><img class="brand-logo brand-logo-login" src="/assets/logo/Logo%20Instalink.png" alt="Logo InstaLink"></div>
+        <p class="eyebrow">INSTALINK OPERATIONS PLATFORM</p>
+        <h1>Selamat datang</h1>
+        <p class="muted">Masuk untuk mengelola billing dan pelanggan ISP Anda.</p>
+        <form id="login-form" class="form-stack">
+          <label>Email<input name="email" type="email" autocomplete="username" placeholder="admin@instalink.id" required></label>
+          <label>Password<input name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" required></label>
+          <button class="button button-primary button-full" type="submit">Masuk ke dashboard <span>→</span></button>
+          <p id="login-error" class="form-error" role="alert"></p>
+        </form>
+      </div>
+      <div class="login-decoration"><div class="glow"></div><div class="decor-copy"><span>CONNECTING</span><h2>Internet yang<br>terhubung. Bisnis<br>yang terkendali.</h2><p>Semua operasi ISP Anda, satu dashboard.</p></div><div class="decor-lines"></div></div>
+    </section>
+
+    <div id="app-shell" class="app-shell hidden">
+      <aside class="sidebar">
+        <a class="brand brand-sidebar" href="#" data-page="dashboard"><img class="brand-logo brand-logo-sidebar" src="/assets/logo/Logo%20Instalink.png" alt="Logo InstaLink"></a>
+        <div class="side-label">WORKSPACE</div>
+        <nav class="main-nav" aria-label="Menu utama">
+          <button class="nav-item active" data-page="dashboard"><span class="nav-icon">◫</span>Ringkasan</button>
+          <button class="nav-item" data-page="customers"><span class="nav-icon">♙</span>Pelanggan</button>
+          <button class="nav-item" data-page="plans"><span class="nav-icon">◉</span>Paket internet</button>
+          <button class="nav-item" data-page="services"><span class="nav-icon">⌁</span>Layanan PPPoE</button>
+          <button class="nav-item" data-page="invoices"><span class="nav-icon">▤</span>Tagihan</button>
+          <button class="nav-item" data-page="tickets"><span class="nav-icon">▧</span>Tiket support<span id="ticket-nav-count" class="nav-count"></span></button>
+          <button class="nav-item" data-page="installation-requests"><span class="nav-icon">＋</span>Ajuan pemasangan</button>
+          <button class="nav-item" data-page="trouble-reports"><span class="nav-icon">⚠</span>Laporan gangguan</button>
+          <button class="nav-item admin-only" data-page="routers"><span class="nav-icon">⌘</span>Router MikroTik</button>
+          <button class="nav-item admin-only" data-page="users"><span class="nav-icon">♧</span>Pengguna staf</button>
+          <button class="nav-item admin-only settings-toggle" type="button" aria-expanded="false" aria-controls="settings-submenu">
+            <span class="nav-icon">⚙</span>Pengaturan<span class="settings-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div id="settings-submenu" class="settings-submenu admin-only hidden">
+            <button class="nav-item settings-subitem" data-page="settings-general">Pengaturan Umum</button>
+            <button class="nav-item settings-subitem" data-page="settings-invoice">Invoice</button>
+            <button class="nav-item settings-subitem" data-page="settings-email">Setting Email</button>
+            <button class="nav-item settings-subitem" data-page="settings-whatsapp">Whatsapp API</button>
+            <button class="nav-item settings-subitem" data-page="settings-api">Setting API</button>
+            <button class="nav-item settings-subitem" data-page="settings-payment">Payment Gateway</button>
+          </div>
+        </nav>
+        <div class="sidebar-bottom"><div class="side-status"><span class="status-dot"></span>API CONNECTED</div><div class="sidebar-hint">InstaLink Billing & CRM<br><span>Workspace dashboard</span></div></div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button id="mobile-menu" class="mobile-menu" aria-label="Buka menu">☰</button>
+          <div class="breadcrumb">Workspace <span>/</span> <strong id="page-breadcrumb">Ringkasan</strong></div>
+          <div class="topbar-user"><span class="avatar" id="user-avatar">A</span><div class="user-copy"><strong id="user-name">Admin</strong><span id="user-role">Administrator</span></div><button id="logout-button" class="logout-button" title="Keluar" aria-label="Keluar">↪</button></div>
+        </header>
+        <div id="toast" class="toast" role="status"></div>
+        <section id="page-content" class="page-content"></section>
+        <footer>InstaLink <span>•</span> Billing & Customer Operations</footer>
+      </main>
+    </div>
+  </body>
+</html>
